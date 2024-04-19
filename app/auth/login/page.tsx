@@ -1,15 +1,17 @@
-import React from 'react'
+import { Loginform } from '@/components/auth/login-form'
+import { CardWrapper } from '@/components/auth/card-wrapper'
 
-const Login = () => {
+const LoginPage = () => {
   return (
-    <main
-      className="flex h-full flex-col items-center justify-center
-      bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-400 to-cyan-900
-    "
+    <CardWrapper
+      headerLabel="Wellcome Back"
+      backButtonLabel="Don't have an account?"
+      backButtonHref="/auth/register"
+      showSocial
     >
-      Login Page
-    </main>
+      <Loginform />
+    </CardWrapper>
   )
 }
 
-export default Login
+export default LoginPage
