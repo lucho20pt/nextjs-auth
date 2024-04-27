@@ -1,6 +1,6 @@
 'use client'
 
-import * as z from 'zod'
+import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { LoginSchema } from '@/schema'
@@ -35,6 +35,9 @@ export const Loginform = () => {
   })
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    setError('')
+    setSuccess('')
+
     startTransition(() => {
       login(values).then((data) => {
         setError(data.error)
@@ -60,7 +63,7 @@ export const Loginform = () => {
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input
-                    type="email"
+                    type="text"
                     {...field}
                     placeholder="john-doe@mail.com"
                     disabled={isPending}
