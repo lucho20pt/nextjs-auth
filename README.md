@@ -1,3 +1,7 @@
+## Project Flow Chart NextAuthJS v5 Edge Edge compatibility
+![figure_01](https://github.com/lucho20pt/nextjs-auth/assets/16256865/1d395aae-cfc9-4ccc-9b26-83a24cd40dac)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
