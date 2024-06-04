@@ -106,6 +106,7 @@ export const RegisterForm = () => {
                     {...field}
                     placeholder="******"
                     disabled={isPending}
+                    autoComplete=""
                   ></Input>
                 </FormControl>
                 <FormMessage />

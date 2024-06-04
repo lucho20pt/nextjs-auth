@@ -86,6 +86,7 @@ export const LoginForm = () => {
                     {...field}
                     placeholder="******"
                     disabled={isPending}
+                    autoComplete=""
                   ></Input>
                 </FormControl>
                 <FormMessage />
