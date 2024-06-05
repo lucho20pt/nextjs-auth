@@ -10,13 +10,25 @@ import authConfig from '@/auth.config'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 
 import { db } from '@/lib/db'
+import { getUserById } from './data/user'
 
 export const {
   handlers: { GET, POST },
   auth,
   signIn,
-  signOut
+  signOut,
 } = NextAuth({
+  callbacks: {
+    async session({ session, token }) {
+      if (token.sub && session.user) {
+        session.user.id = token.sub
+      }
+      return session
+    },
+    async jwt({ token }) {
+      return token
+    },
+  },
   adapter: PrismaAdapter(db),
   session: { strategy: 'jwt' }, // prisma cannot use database strategy, cause don't work on the edge
   ...authConfig,
