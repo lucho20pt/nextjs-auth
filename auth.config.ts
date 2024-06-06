@@ -10,9 +10,19 @@ import bcrypt from 'bcryptjs'
 
 import { LoginSchema } from '@/schema'
 import { getUserByEmail } from './data/user'
+import GoogleProvider from 'next-auth/providers/google'
+import GithubProvider from 'next-auth/providers/github'
 
 export default {
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_SECRET_ID
+    }),
+    GithubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_SECRET_ID
+    }),
     CredentialsProvider({
       async authorize(credentials) {
         const validatedFields = LoginSchema.safeParse(credentials)
